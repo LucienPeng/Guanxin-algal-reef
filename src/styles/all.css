@@ -1,0 +1,35 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "千圖馬克手寫體";
+  src: url("../assets/千圖馬克手寫體.ttf");
+}
+
+@font-face {
+  font-family: "馬路口圓體";
+  src: url("../assets/馬路口圓體.woff2");
+}
+
+@font-face {
+  font-family: "粉圓體";
+  src: url("../assets/粉圓體.ttf");
+}
+
+@font-face {
+  font-family: "宋明體";
+  src: url("../assets/宋明體.ttf");
+}
+
+* {
+  font-family: "千圖馬克手寫體";
+}
+
+.hero-banner {
+  min-height: 100vh;
+  background: url("../assets/Hero-banner.jpeg") no-repeat center;
+  background-size: cover;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/*# sourceMappingURL=all.css.map */
