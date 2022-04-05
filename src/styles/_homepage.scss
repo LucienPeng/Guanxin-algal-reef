@@ -1,5 +1,9 @@
 .hero-banner {
-  min-height: 100vh;
   background: url("../assets/Hero-banner.jpeg") no-repeat center;
   background-size: cover;
+  background-attachment: fixed;
+  h1,
+  p {
+    font-family: "千圖馬克手寫體";
+  }
 }

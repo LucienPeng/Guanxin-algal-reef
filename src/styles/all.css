@@ -19,14 +19,15 @@
   src: url("../assets/宋明體.ttf");
 }
 
-* {
-  font-family: "千圖馬克手寫體";
-}
-
 .hero-banner {
-  min-height: 100vh;
   background: url("../assets/Hero-banner.jpeg") no-repeat center;
   background-size: cover;
+  background-attachment: fixed;
+}
+
+.hero-banner h1,
+.hero-banner p {
+  font-family: "千圖馬克手寫體";
 }
 
 @tailwind base;
