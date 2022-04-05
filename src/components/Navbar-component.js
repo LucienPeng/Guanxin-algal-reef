@@ -7,9 +7,9 @@ const NavbarComponent = () => {
   const [navShadow, setNavShadow] = useState("");
 
   const listenScrollEvent = () => {
-    if (window.scrollY > 15) {
-      setNavColor("sm:bg-lime-500");
-      //setNavShadow("shadow-xl");
+    if (window.scrollY > 5) {
+      setNavColor("lg:bg-sky-800");
+      setNavShadow("shadow-xl");
     } else {
       setNavColor("");
       setNavShadow("");
@@ -31,7 +31,7 @@ const NavbarComponent = () => {
   return (
     <div>
       <nav
-        className={`navbar duration-400 fixed top-0 z-50 w-full transition ease-in-out ${navShadow} ${navColor} select-none justify-center bg-lime-500 sm:bg-transparent lg:flex lg:items-stretch`}
+        className={`navbar duration-400 fixed top-0 z-50 w-full transition ease-in-out ${navShadow} ${navColor} select-none justify-center bg-sky-800 lg:flex lg:items-stretch lg:bg-transparent`}
       >
         <div className=" mx-9 flex h-12 text-3xl text-black ">
           <button
