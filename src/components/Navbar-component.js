@@ -8,7 +8,7 @@ const NavbarComponent = () => {
 
   const listenScrollEvent = () => {
     if (window.scrollY > 10) {
-      setNavColor("sm:bg-amber-400");
+      setNavColor("sm:bg-amber-300");
       setNavShadow("shadow-xl");
     } else {
       setNavColor("sm:transparent");
