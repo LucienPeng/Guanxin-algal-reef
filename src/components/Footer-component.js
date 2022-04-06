@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const FooterComponent = () => {
   return (
     <div>
-      <footer className="bg-white pt-4 pb-8 dark:bg-gray-800 xl:pt-8">
+      <footer className=" bg-white pt-4 pb-8 dark:bg-gray-800 xl:pt-8">
         <div className="mx-auto max-w-screen-lg px-4 text-gray-400 dark:text-gray-300 sm:px-6 md:px-8 xl:max-w-screen-xl">
           <ul className="flex flex-wrap justify-center pb-8 text-lg font-light">
             <li className="w-1/2 md:w-1/3 lg:w-1/3">
@@ -13,16 +14,16 @@ const FooterComponent = () => {
                 </h2>
                 <ul>
                   <li className="mb-4 transition-colors duration-200 hover:text-gray-800 dark:hover:text-white">
-                    <a href="#">場館簡介</a>
+                    <Link to="#">場館簡介</Link>
                   </li>
                   <li className="mb-4 transition-colors duration-200 hover:text-gray-800 dark:hover:text-white">
-                    <a href="#">時光隧道</a>
+                    <Link to="#">時光隧道</Link>
                   </li>
                   <li className="mb-4 transition-colors duration-200 hover:text-gray-800 dark:hover:text-white">
-                    <a href="#">認識藻礁</a>
+                    <Link to="#">認識藻礁</Link>
                   </li>
                   <li className="mb-4 transition-colors duration-200 hover:text-gray-800 dark:hover:text-white">
-                    <a href="#">特色產品</a>
+                    <Link to="#">特色產品</Link>
                   </li>
                 </ul>
               </div>
@@ -34,16 +35,16 @@ const FooterComponent = () => {
                 </h2>
                 <ul>
                   <li className="mb-4 transition-colors duration-200 hover:text-gray-800 dark:hover:text-white">
-                    <a href="#">場館訊息</a>
+                    <Link to="#">場館訊息</Link>
                   </li>
                   <li className="mb-4 transition-colors duration-200 hover:text-gray-800 dark:hover:text-white">
-                    <a href="#">活動快訊</a>
+                    <Link to="#">活動快訊</Link>
                   </li>
                   <li className="mb-4 transition-colors duration-200 hover:text-gray-800 dark:hover:text-white">
-                    <a href="#">交通方式</a>
+                    <Link to="#">交通方式</Link>
                   </li>
                   <li className="mb-4 transition-colors duration-200 hover:text-gray-800 dark:hover:text-white">
-                    <a href="#">鄰近景點</a>
+                    <Link to="#">鄰近景點</Link>
                   </li>
                 </ul>
               </div>
@@ -55,13 +56,13 @@ const FooterComponent = () => {
                 </h2>
                 <ul>
                   <li className="mb-4 transition-colors duration-200 hover:text-gray-800 dark:hover:text-white">
-                    <a href="#">聯繫方式</a>
+                    <Link to="#">聯繫方式</Link>
                   </li>
                   <li className="mb-4 transition-colors duration-200 hover:text-gray-800 dark:hover:text-white">
-                    <a href="#">Facebook</a>
+                    <Link to="#">Facebook</Link>
                   </li>
                   <li className="mb-4 transition-colors duration-200 hover:text-gray-800 dark:hover:text-white">
-                    <a href="#">Instagram</a>
+                    <Link to="#">Instagram</Link>
                   </li>
                 </ul>
               </div>

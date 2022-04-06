@@ -19,6 +19,10 @@
   src: url("../assets/宋明體.ttf");
 }
 
+* {
+  font-family: "粉圓體";
+}
+
 .hero-banner {
   background: url("../assets/Hero-banner.jpeg") no-repeat center;
   background-size: cover;
