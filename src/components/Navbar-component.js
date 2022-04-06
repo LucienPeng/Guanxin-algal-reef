@@ -4,17 +4,17 @@ import { Link } from "react-router-dom";
 const NavbarComponent = () => {
   const menuCollapseRef = useRef("");
   // 如果 Scroll Y 軸 > 5 為 true；反之則為 false
-	const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const [navShadow, setNavShadow] = useState("");
 
   const listenScrollEvent = () => {
     if (window.scrollY > 5) {
-			setIsScrolled(true);
-			setNavShadow('shadow-xl');
-		} else {
-			setIsScrolled(false);
-			setNavShadow('');
-		}
+      setIsScrolled(true);
+      setNavShadow("shadow-xl");
+    } else {
+      setIsScrolled(false);
+      setNavShadow("");
+    }
   };
 
   const menuHandler = () => {
@@ -32,7 +32,9 @@ const NavbarComponent = () => {
   return (
     <div>
       <nav
-        className={`navbar duration-400 fixed top-0 z-50 w-full transition ease-in-out ${navShadow} ${isScrolled ? 'lg:bg-sky-800' : 'lg:bg-transparent'} select-none justify-center bg-sky-800 lg:flex lg:items-stretch`}
+        className={`navbar fixed top-0 z-50 w-full transition duration-500 ease-in-out ${navShadow} ${
+          isScrolled ? "lg:bg-sky-800" : "lg:bg-transparent"
+        }  select-none justify-center bg-sky-800 lg:flex lg:items-stretch`}
       >
         <div className=" mx-9 flex h-12 text-3xl text-black ">
           <button
