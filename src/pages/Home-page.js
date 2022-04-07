@@ -4,7 +4,7 @@ const HomePage = () => {
   return (
     <div className="Home-Page">
       <BannerComponent />
-      <div className="flex justify-between mx-10">
+      <div className="sm:mx-10 mx-5 sm:flex items-center justify-between">
         <TideForecastComponent />
         <div className=" flex w-full items-center justify-center">最新消息</div>
       </div>

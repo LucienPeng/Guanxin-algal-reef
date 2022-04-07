@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 const FooterComponent = () => {
   return (
     <div>
-      <footer className=" bg-white pt-4 pb-8 dark:bg-gray-800 xl:pt-8">
-        <div className="mx-auto max-w-screen-lg px-4 text-gray-400 dark:text-gray-300 sm:px-6 md:px-8 xl:max-w-screen-xl">
-          <ul className="flex flex-wrap justify-center pb-8 text-lg font-light">
+      <footer className=" bg-sky-800 pt-4 pb-8 dark:bg-gray-800 xl:pt-8">
+        <div className="mx-auto max-w-screen-lg text-gray-400 dark:text-gray-300 sm:px-6 md:px-8 xl:max-w-screen-xl">
+          <ul className="flex flex-nowrap justify-center pb-8 text-lg font-light">
             <li className="w-1/2 md:w-1/3 lg:w-1/3">
               <div className="text-center">
-                <h2 className="text-md mb-4 uppercase text-gray-500 dark:text-gray-200">
+                <h2 className="text-md mb-4 uppercase text-white dark:text-gray-200">
                   認識我們
                 </h2>
                 <ul>
@@ -30,7 +30,7 @@ const FooterComponent = () => {
             </li>
             <li className="w-1/2 md:w-1/3 lg:w-1/3">
               <div className="text-center">
-                <h2 className="text-md mb-4 uppercase text-gray-500 dark:text-gray-200">
+                <h2 className="text-md mb-4 uppercase text-white dark:text-gray-200">
                   實用資訊
                 </h2>
                 <ul>
@@ -51,7 +51,7 @@ const FooterComponent = () => {
             </li>
             <li className="w-1/2 md:w-1/3 lg:w-1/3">
               <div className="text-center">
-                <h2 className="text-md mb-4 uppercase text-gray-500 dark:text-gray-200">
+                <h2 className="text-md mb-4 uppercase text-white dark:text-gray-200">
                   聯絡我們
                 </h2>
                 <ul>

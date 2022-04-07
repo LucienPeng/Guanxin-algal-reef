@@ -76,73 +76,71 @@ const TideForecastComponent = () => {
       });
   }, [counter]);
   return (
-    <div className="mt-10 mb-10 w-full">
-      <div className="relative rounded-lg shadow-md ">
-        <table className="w-full  text-center text-sm text-gray-500 dark:text-gray-400">
-          <thead className="bg-gray-50 uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
-            <tr>
-              <th className="text-lg" colSpan="5" scope="col">
-                {`${date} 當日潮汐表`}
-              </th>
-            </tr>
-            <tr>
-              <th scope="col" className="px-6 py-3">
-                農曆
-              </th>
-              <th scope="col" className="px-6 py-3">
-                {lunarDate}
-              </th>
-              <th scope="col" className="px-6 py-3"></th>
-              <th scope="col" className="px-6 py-3">
-                潮差
-              </th>
-              <th scope="col" className="px-6 py-3">
-                {tideDifference}
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr className="border-b bg-white dark:border-gray-700 dark:bg-gray-800">
-              <th
-                scope="row"
-                className=" whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
-              >
-                時間
-              </th>
-              <td className="px-6 py-4">{time1}</td>
-              <td className="px-6 py-4">{time2}</td>
-              <td className="px-6 py-4">{time3}</td>
-              <td className="px-6 py-4">{time4}</td>
-            </tr>
-            <tr className="border-b bg-white dark:border-gray-700 dark:bg-gray-800">
-              <th
-                scope="row"
-                className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
-              >
-                潮汐
-              </th>
-              <td className="px-6 py-4">{tide1}</td>
-              <td className="px-6 py-4">{tide2}</td>
-              <td className="px-6 py-4">{tide3}</td>
-              <td className="px-6 py-4">{tide4}</td>
-            </tr>
-            <tr className="bg-white dark:bg-gray-800">
-              <th
-                scope="row"
-                className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
-              >
-                相對海平面
-                <br />
-                潮高(cm)
-              </th>
-              <td className="px-6 py-4">{tideHeight1}</td>
-              <td className="px-6 py-4">{tideHeight2}</td>
-              <td className="px-6 py-4">{tideHeight3}</td>
-              <td className="px-6 py-4">{tideHeight4}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    <div className="mt-10 mb-10 flex	w-full flex-col items-center justify-center rounded-lg  shadow-md">
+      <table className="w-full table-fixed text-center text-sm text-gray-500  dark:text-gray-400 sm:table-auto">
+        <thead className="rounded-lg bg-gray-300 text-gray-700 dark:bg-gray-700 dark:text-gray-400">
+          <tr>
+            <th className="text-lg" colSpan="5" scope="col">
+              {`${date} 當日潮汐表`}
+            </th>
+          </tr>
+          <tr>
+            <th scope="col" className="px-6 py-3">
+              農曆
+            </th>
+            <th scope="col" className="px-6 py-3">
+              {lunarDate}
+            </th>
+            <th scope="col" className="px-6 py-3"></th>
+            <th scope="col" className="px-6 py-3">
+              潮差
+            </th>
+            <th scope="col" className="px-6 py-3">
+              {tideDifference}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr className="border-b bg-white dark:border-gray-700 dark:bg-gray-800">
+            <th
+              scope="row"
+              className=" whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
+            >
+              時間
+            </th>
+            <td className="px-6 py-4">{time1}</td>
+            <td className="px-6 py-4">{time2}</td>
+            <td className="px-6 py-4">{time3}</td>
+            <td className="px-6 py-4">{time4}</td>
+          </tr>
+          <tr className="border-b bg-white dark:border-gray-700 dark:bg-gray-800">
+            <th
+              scope="row"
+              className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
+            >
+              潮汐
+            </th>
+            <td className="px-6 py-4">{tide1}</td>
+            <td className="px-6 py-4">{tide2}</td>
+            <td className="px-6 py-4">{tide3}</td>
+            <td className="px-6 py-4">{tide4}</td>
+          </tr>
+          <tr className="bg-white dark:bg-gray-800">
+            <th
+              scope="row"
+              className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
+            >
+              相對海平面
+              <br />
+              潮高(cm)
+            </th>
+            <td className="px-6 py-4">{tideHeight1}</td>
+            <td className="px-6 py-4">{tideHeight2}</td>
+            <td className="px-6 py-4">{tideHeight3}</td>
+            <td className="px-6 py-4">{tideHeight4}</td>
+          </tr>
+        </tbody>
+      </table>
       <div className="mt-5 flex items-center justify-center">
         <button
           onClick={nextTideForecastHandle}

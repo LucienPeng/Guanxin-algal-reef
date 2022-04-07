@@ -54,61 +54,61 @@ const NavbarComponent = () => {
           <div className="ml-auto hidden lg:flex" ref={menuCollapseRef}>
             <Link
               to="/guanxin-algal-reef"
-              className="flex-no-grow flex-no-shrink hover:bg-grey-dark relative flex items-center py-2 px-4 leading-normal text-white no-underline"
+              className=" flex-no-grow flex-no-shrink relative flex items-center py-2 px-4 leading-normal text-white no-underline hover:scale-110 transition-all ease-out  hover:text-amber-300 "
             >
               首頁
             </Link>
             <Link
               to="#"
-              className="flex-no-grow flex-no-shrink hover:bg-grey-dark relative flex items-center py-2 px-4 leading-normal text-white no-underline"
+              className="flex-no-grow flex-no-shrink relative flex items-center py-2 px-4 leading-normal text-white no-underline hover:scale-110 transition-all ease  hover:text-amber-300"
             >
               最新消息
             </Link>
             <Link
               to="#"
-              className="flex-no-grow flex-no-shrink hover:bg-grey-dark relative flex items-center py-2 px-4 leading-normal text-white no-underline"
+              className="flex-no-grow flex-no-shrink relative flex items-center py-2 px-4 leading-normal text-white no-underline hover:scale-110 transition-all ease  hover:text-amber-300"
             >
               場域介紹
             </Link>
             <Link
               to="#"
-              className="flex-no-grow flex-no-shrink hover:bg-grey-dark relative flex items-center py-2 px-4 leading-normal text-white no-underline"
+              className="flex-no-grow flex-no-shrink relative flex items-center py-2 px-4 leading-normal text-white no-underline hover:scale-110 transition-all ease  hover:text-amber-300"
             >
               認識藻礁
             </Link>
             <Link
               to="#"
-              className="flex-no-grow flex-no-shrink hover:bg-grey-dark relative flex items-center py-2 px-4 leading-normal text-white no-underline"
+              className="flex-no-grow flex-no-shrink relative flex items-center py-2 px-4 leading-normal text-white no-underline hover:scale-110 transition-all ease  hover:text-amber-300"
             >
               場域介紹
             </Link>
             <Link
               to="#"
-              className="flex-no-grow flex-no-shrink hover:bg-grey-dark relative flex items-center py-2 px-4 leading-normal text-white no-underline"
+              className="flex-no-grow flex-no-shrink relative flex items-center py-2 px-4 leading-normal text-white no-underline hover:scale-110 transition-all ease  hover:text-amber-300"
             >
               活動體驗
             </Link>
             <Link
               to="#"
-              className="flex-no-grow flex-no-shrink hover:bg-grey-dark relative flex items-center py-2 px-4 leading-normal text-white no-underline"
+              className="flex-no-grow flex-no-shrink relative flex items-center py-2 px-4 leading-normal text-white no-underline hover:scale-110 transition-all ease  hover:text-amber-300"
             >
               附近景點
             </Link>
             <Link
               to="#"
-              className="flex-no-grow flex-no-shrink hover:bg-grey-dark relative flex items-center py-2 px-4 leading-normal text-white no-underline"
+              className="flex-no-grow flex-no-shrink relative flex items-center py-2 px-4 leading-normal text-white no-underline hover:scale-110 transition-all ease  hover:text-amber-300"
             >
               特色產品
             </Link>
             <Link
               to="#"
-              className="flex-no-grow flex-no-shrink hover:bg-grey-dark relative flex items-center py-2 px-4 leading-normal text-white no-underline"
+              className="flex-no-grow flex-no-shrink relative flex items-center py-2 px-4 leading-normal text-white no-underline hover:scale-110 transition-all ease  hover:text-amber-300"
             >
               交通指南
             </Link>
             <Link
               to="#"
-              className="flex-no-grow flex-no-shrink hover:bg-grey-dark relative flex items-center py-2 px-4 leading-normal text-white no-underline"
+              className="flex-no-grow flex-no-shrink relative flex items-center py-2 px-4 leading-normal text-white no-underline hover:scale-110 transition-all ease  hover:text-amber-300"
             >
               聯絡我們
             </Link>
