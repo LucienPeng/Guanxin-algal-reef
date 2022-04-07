@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import highTide from "../assets/5797913.png";
+import lowTide from "../assets/5797961.png";
 import dayjs from "dayjs";
 
 const TideForecastComponent = () => {
@@ -76,36 +78,22 @@ const TideForecastComponent = () => {
       });
   }, [counter]);
   return (
-    <div className="mt-10 mb-10 flex	w-full flex-col items-center justify-center rounded-lg  shadow-md">
-      <table className="w-full table-fixed text-center text-sm text-gray-500  dark:text-gray-400 sm:table-auto">
-        <thead className="rounded-lg bg-gray-300 text-gray-700 dark:bg-gray-700 dark:text-gray-400">
+    <div className="mt-10 mb-10 flex w-full	flex-col items-center justify-center rounded-lg p-1  shadow-md">
+      <h2 className="my-3 text-lg">{`${date} 當日潮汐表`}</h2>
+      <table className="w-full table-fixed rounded-lg text-center text-sm text-gray-500  sm:table-auto">
+        <thead className="rounded-lg  text-gray-700">
           <tr>
-            <th className="text-lg" colSpan="5" scope="col">
-              {`${date} 當日潮汐表`}
-            </th>
+            <th className="px-6 py-3">農曆</th>
+            <th className="px-6 py-3">{lunarDate}</th>
+            <th className="px-6 py-3"></th>
+            <th className="px-6 py-3">潮差</th>
+            <th className="px-6 py-3">{tideDifference}</th>
           </tr>
-          <tr>
-            <th scope="col" className="px-6 py-3">
-              農曆
-            </th>
-            <th scope="col" className="px-6 py-3">
-              {lunarDate}
-            </th>
-            <th scope="col" className="px-6 py-3"></th>
-            <th scope="col" className="px-6 py-3">
-              潮差
-            </th>
-            <th scope="col" className="px-6 py-3">
-              {tideDifference}
-            </th>
-          </tr>
+          <tr className="border-b bg-white  "></tr>
         </thead>
         <tbody>
-          <tr className="border-b bg-white dark:border-gray-700 dark:bg-gray-800">
-            <th
-              scope="row"
-              className=" whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
-            >
+          <tr className="border-b bg-white  ">
+            <th className=" whitespace-nowrap px-6 py-4 font-medium text-gray-900 ">
               時間
             </th>
             <td className="px-6 py-4">{time1}</td>
@@ -113,35 +101,83 @@ const TideForecastComponent = () => {
             <td className="px-6 py-4">{time3}</td>
             <td className="px-6 py-4">{time4}</td>
           </tr>
-          <tr className="border-b bg-white dark:border-gray-700 dark:bg-gray-800">
-            <th
-              scope="row"
-              className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
-            >
+          <tr>
+            <th className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 ">
               潮汐
             </th>
-            <td className="px-6 py-4">{tide1}</td>
-            <td className="px-6 py-4">{tide2}</td>
-            <td className="px-6 py-4">{tide3}</td>
-            <td className="px-6 py-4">{tide4}</td>
+            <td className="px-6 pt-3">
+              <div
+                className={`
+                  ${
+                    tide1 === "滿潮" ? "text-red-500" : "text-sky-500"
+                  } flex flex-col items-center
+                `}
+              >
+                <img
+                  className="my-1 w-5"
+                  src={tide1 === "滿潮" ? highTide : lowTide}
+                  alt=""
+                />
+                {tide1}
+              </div>
+            </td>
+            <td className="px-6 pt-3">
+              <div
+                className={`${
+                  tide2 === "滿潮" ? "text-red-500" : "text-sky-500"
+                } flex flex-col items-center`}
+              >
+                <img
+                  className="my-1 w-5"
+                  src={tide2 === "滿潮" ? highTide : lowTide}
+                  alt=""
+                />
+                {tide2}
+              </div>
+            </td>
+            <td className="px-6 pt-3">
+              <div
+                className={`${
+                  tide3 === "滿潮" ? "text-red-500" : "text-sky-500"
+                }  flex flex-col items-center`}
+              >
+                <img
+                  className="my-1 w-5"
+                  src={tide3 === "滿潮" ? highTide : lowTide}
+                  alt=""
+                />
+                {tide3}
+              </div>
+            </td>
+            <td className="px-6 pt-3">
+              <div
+                className={`${
+                  tide4 === "滿潮" ? "text-red-500" : "text-sky-500"
+                }  flex flex-col items-center`}
+              >
+                <img
+                  className="my-1 w-5"
+                  src={tide4 === "滿潮" ? highTide : lowTide}
+                  alt=""
+                />
+                {tide4}
+              </div>
+            </td>
           </tr>
-          <tr className="bg-white dark:bg-gray-800">
-            <th
-              scope="row"
-              className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
-            >
+          <tr className="bg-white ">
+            <th className="px-6 pb-4 font-medium text-gray-900 ">
               相對海平面
               <br />
               潮高(cm)
             </th>
-            <td className="px-6 py-4">{tideHeight1}</td>
-            <td className="px-6 py-4">{tideHeight2}</td>
-            <td className="px-6 py-4">{tideHeight3}</td>
-            <td className="px-6 py-4">{tideHeight4}</td>
+            <td className="px-6 pb-4">{tideHeight1}</td>
+            <td className="px-6 pb-4">{tideHeight2}</td>
+            <td className="px-6 pb-4">{tideHeight3}</td>
+            <td className="px-6 pb-4">{tideHeight4}</td>
           </tr>
         </tbody>
       </table>
-      <div className="mt-5 flex items-center justify-center">
+      <div className="my-2 flex items-center justify-center">
         <button
           onClick={nextTideForecastHandle}
           type="button"

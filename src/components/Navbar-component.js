@@ -32,7 +32,7 @@ const NavbarComponent = () => {
   return (
     <div>
       <nav
-        className={`navbar fixed top-0 z-50 w-full transition duration-500 ease-in-out ${navShadow} ${
+        className={`navbar fixed top-0 z-50 w-full transition duration-500 text-center ease-in-out ${navShadow} ${
           isScrolled ? "lg:bg-sky-800" : "lg:bg-transparent"
         }  select-none justify-center bg-sky-800 lg:flex lg:items-stretch`}
       >
