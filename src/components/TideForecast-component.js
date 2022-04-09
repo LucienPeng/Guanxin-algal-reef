@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import highTide from "../assets/5797913.png";
-import lowTide from "../assets/5797961.png";
+import highTide from "../assets/highTide.png";
+import lowTide from "../assets/lowTide.png";
 import dayjs from "dayjs";
 
 const TideForecastComponent = () => {
