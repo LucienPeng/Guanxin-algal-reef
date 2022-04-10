@@ -28,6 +28,11 @@ const TideForecastComponent = () => {
     setCounter(counter + 1);
   };
 
+  const previousTideForecastHandle = () => {
+    if (counter <= 0) return;
+    setCounter(counter - 1);
+  };
+
   useEffect(() => {
     fetch(
       "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-A0021-001?Authorization=CWB-030D5CFD-3027-4E9D-B27E-59A1E6E3386A&format=JSON&locationName=%E6%A1%83%E5%9C%92%E5%B8%82%E6%96%B0%E5%B1%8B%E5%8D%80&sort=validTime"
@@ -37,6 +42,12 @@ const TideForecastComponent = () => {
       })
       .then((originData) => {
         const finalResult = originData.records.location[0].validTime;
+
+        if (counter > finalResult.length) {
+          setCounter(31);
+          return;
+        }
+
         setDate(finalResult[0 + counter].startTime.slice(0, 10));
         setLunarDate(finalResult[0 + counter].weatherElement[0].elementValue);
         setTideDifference(
@@ -61,16 +72,26 @@ const TideForecastComponent = () => {
           return temp;
         });
         setTime1(tempRR[0 + counter][0].dataTime.slice(11, 16));
-        setTime2(tempRR[0 + counter][1].dataTime.slice(11, 16));
-        setTime3(tempRR[0 + counter][2].dataTime.slice(11, 16));
-        setTime4(tempRR[0 + counter][3].dataTime.slice(11, 16));
         setTide1(tempRR[0 + counter][0].parameter[0].parameterValue);
-        setTide2(tempRR[0 + counter][1].parameter[0].parameterValue);
-        setTide3(tempRR[0 + counter][2].parameter[0].parameterValue);
-        setTide4(tempRR[0 + counter][3].parameter[0].parameterValue);
         setTideHeight1(tempRR[0 + counter][0].parameter[2].parameterValue);
+
+        setTime2(tempRR[0 + counter][1].dataTime.slice(11, 16));
+        setTide2(tempRR[0 + counter][1].parameter[0].parameterValue);
         setTideHeight2(tempRR[0 + counter][1].parameter[2].parameterValue);
+
+        setTime3(tempRR[0 + counter][2].dataTime.slice(11, 16));
+        setTide3(tempRR[0 + counter][2].parameter[0].parameterValue);
         setTideHeight3(tempRR[0 + counter][2].parameter[2].parameterValue);
+
+        if (tempRR[0 + counter].length < 4) {
+          setTime4("");
+          setTide4("");
+          setTideHeight4("");
+          return;
+        }
+
+        setTime4(tempRR[0 + counter][3].dataTime.slice(11, 16));
+        setTide4(tempRR[0 + counter][3].parameter[0].parameterValue);
         setTideHeight4(tempRR[0 + counter][3].parameter[2].parameterValue);
       })
       .catch((e) => {
@@ -78,21 +99,22 @@ const TideForecastComponent = () => {
       });
   }, [counter]);
   return (
-    <div className="mt-10 mb-10 flex w-full	flex-col items-center justify-center rounded-lg p-1  shadow-md">
-      <h2 className="my-3 text-lg">{`${date} 當日潮汐表`}</h2>
+    <div className="mt-10 mb-6 flex w-full	flex-col items-center justify-center rounded-lg p-1  shadow-md">
+      <h2 className="my-3 text-lg">
+        <span className="text-2xl">{date}</span>
+        {"   "}
+        當日潮汐預報
+      </h2>
+      <ul className="mb-7 flex gap-10 text-sm ">
+        <li>農曆：{lunarDate}</li>
+        <li>潮差：{tideDifference}</li>
+      </ul>
       <table className="w-full table-fixed rounded-lg text-center text-sm text-gray-500  sm:table-auto">
         <thead className="rounded-lg  text-gray-700">
-          <tr>
-            <th className="px-6 py-3">農曆</th>
-            <th className="px-6 py-3">{lunarDate}</th>
-            <th className="px-6 py-3"></th>
-            <th className="px-6 py-3">潮差</th>
-            <th className="px-6 py-3">{tideDifference}</th>
-          </tr>
-          <tr className="border-b bg-white  "></tr>
+          <tr className="border-b bg-white"></tr>
         </thead>
         <tbody>
-          <tr className="border-b bg-white  ">
+          <tr className="border-b">
             <th className=" whitespace-nowrap px-6 py-4 font-medium text-gray-900 ">
               時間
             </th>
@@ -101,11 +123,11 @@ const TideForecastComponent = () => {
             <td className="px-6 py-4">{time3}</td>
             <td className="px-6 py-4">{time4}</td>
           </tr>
-          <tr>
-            <th className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 ">
+          <tr className="">
+            <th className="whitespace-nowrap px-6 pt-4 pb-2 font-medium text-gray-900 ">
               潮汐
             </th>
-            <td className="px-6 pt-3">
+            <td className="px-6 pt-4 pb-2">
               <div
                 className={`
                   ${
@@ -121,7 +143,7 @@ const TideForecastComponent = () => {
                 {tide1}
               </div>
             </td>
-            <td className="px-6 pt-3">
+            <td className="px-6 pt-4 pb-2">
               <div
                 className={`${
                   tide2 === "滿潮" ? "text-red-500" : "text-sky-500"
@@ -135,7 +157,7 @@ const TideForecastComponent = () => {
                 {tide2}
               </div>
             </td>
-            <td className="px-6 pt-3">
+            <td className="px-6 pt-4 pb-2">
               <div
                 className={`${
                   tide3 === "滿潮" ? "text-red-500" : "text-sky-500"
@@ -149,22 +171,24 @@ const TideForecastComponent = () => {
                 {tide3}
               </div>
             </td>
-            <td className="px-6 pt-3">
+            <td className="px-6 pt-4 pb-2">
               <div
                 className={`${
                   tide4 === "滿潮" ? "text-red-500" : "text-sky-500"
                 }  flex flex-col items-center`}
               >
-                <img
-                  className="my-1 w-5"
-                  src={tide4 === "滿潮" ? highTide : lowTide}
-                  alt=""
-                />
+                {tide4 && (
+                  <img
+                    className="my-1 w-5"
+                    src={tide4 === "滿潮" ? highTide : lowTide}
+                    alt=""
+                  />
+                )}
                 {tide4}
               </div>
             </td>
           </tr>
-          <tr className="bg-white ">
+          <tr className="">
             <th className="px-6 pb-4 font-medium text-gray-900 ">
               相對海平面
               <br />
@@ -177,21 +201,43 @@ const TideForecastComponent = () => {
           </tr>
         </tbody>
       </table>
-      <div className="my-2 flex items-center justify-center">
+
+      <div className="mt-2 flex items-center justify-center">
+        <button
+          onClick={previousTideForecastHandle}
+          type="button"
+          className="mr-2 rounded-lg bg-gradient-to-r from-sky-400 via-sky-500 to-sky-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gradient-to-br focus:outline-none focus:ring-4 focus:ring-sky-300 dark:focus:ring-sky-800"
+        >
+          前一日潮汐預報
+        </button>
         <button
           onClick={nextTideForecastHandle}
           type="button"
-          className="mr-2 mb-2 rounded-lg bg-gradient-to-r from-sky-400 via-sky-500 to-sky-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gradient-to-br focus:outline-none focus:ring-4 focus:ring-sky-300 dark:focus:ring-sky-800"
+          className="mr-2 rounded-lg bg-gradient-to-r from-sky-400 via-sky-500 to-sky-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gradient-to-br focus:outline-none focus:ring-4 focus:ring-sky-300 dark:focus:ring-sky-800"
         >
           下一日潮汐預報
         </button>
         <button
           type="button"
-          className="mr-2 mb-2 rounded-lg bg-gradient-to-r from-sky-400 via-sky-500 to-sky-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gradient-to-br focus:outline-none focus:ring-4 focus:ring-sky-300 dark:focus:ring-sky-800"
+          className="mr-2 rounded-lg bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gradient-to-br focus:outline-none focus:ring-4 focus:ring-sky-300 dark:focus:ring-sky-800"
         >
           30日潮汐預報表
         </button>
       </div>
+
+      <ul className="text-start p-5 pt-4 pb-2 text-sm">
+        <li>
+          <hr className="m-3" />
+        </li>
+        <li>
+          <i className="bi bi-info-circle"></i>{" "}
+          最佳生態觀賞時間為每日退潮前後2個小時。
+        </li>
+        <li>
+          <i className="bi bi-info-circle"></i>{" "}
+          桃園海岸潮汐時間的口訣為：「初一、十五早晚乾，初八、二三早晚滿」
+        </li>
+      </ul>
     </div>
   );
 };

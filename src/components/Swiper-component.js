@@ -45,31 +45,31 @@ export default function App() {
         className="mySwiper"
       >
         <SwiperSlide>
-          <img src="https://picsum.photos/700/300" alt="" />
+          <img src="https://picsum.photos/700/500" alt="" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://picsum.photos/700/300" alt="" />
+          <img src="https://picsum.photos/700/500" alt="" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://picsum.photos/700/300" alt="" />
+          <img src="https://picsum.photos/700/500" alt="" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://picsum.photos/700/300" alt="" />
+          <img src="https://picsum.photos/700/500" alt="" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://picsum.photos/700/300" alt="" />
+          <img src="https://picsum.photos/700/500" alt="" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://picsum.photos/700/300" alt="" />
+          <img src="https://picsum.photos/700/500" alt="" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://picsum.photos/700/300" alt="" />
+          <img src="https://picsum.photos/700/500" alt="" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://picsum.photos/700/300" alt="" />
+          <img src="https://picsum.photos/700/500" alt="" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://picsum.photos/700/300" alt="" />
+          <img src="https://picsum.photos/700/500" alt="" />
         </SwiperSlide>
       </Swiper>
     </>
