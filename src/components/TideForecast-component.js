@@ -43,10 +43,7 @@ const TideForecastComponent = () => {
       .then((originData) => {
         const finalResult = originData.records.location[0].validTime;
 
-        if (counter > finalResult.length) {
-          setCounter(31);
-          return;
-        }
+        if (counter > finalResult.length) return;
 
         setDate(finalResult[0 + counter].startTime.slice(0, 10));
         setLunarDate(finalResult[0 + counter].weatherElement[0].elementValue);
