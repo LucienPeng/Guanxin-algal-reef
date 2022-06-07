@@ -1,22 +1,24 @@
 {
   "files": {
-    "main.css": "/guanxin-algal-reef/static/css/main.caceb4a8.css",
-    "main.js": "/guanxin-algal-reef/static/js/main.487c21cf.js",
+    "main.css": "/guanxin-algal-reef/static/css/main.99d19520.css",
+    "main.js": "/guanxin-algal-reef/static/js/main.0e580081.js",
     "static/media/千圖馬克手寫體.ttf": "/guanxin-algal-reef/static/media/千圖馬克手寫體.f1804eb11e45a3b62120.ttf",
-    "static/media/宋明體.ttf": "/guanxin-algal-reef/static/media/宋明體.a0206413ef8b3a0ae4ad.ttf",
-    "static/media/馬路口圓體.woff2": "/guanxin-algal-reef/static/media/馬路口圓體.87026af3a856c1120504.woff2",
     "static/media/粉圓體.ttf": "/guanxin-algal-reef/static/media/粉圓體.8b3953f644e641262a5c.ttf",
-    "static/media/Hero-banner.jpeg": "/guanxin-algal-reef/static/media/Hero-banner.59252b32d79ae44d1b13.jpeg",
+    "static/media/Hero-banner4.jpeg": "/guanxin-algal-reef/static/media/Hero-banner4.cf2b8150c9e531ca81cc.jpeg",
+    "static/media/Hero-banner2.jpeg": "/guanxin-algal-reef/static/media/Hero-banner2.900f910c76cacc06605e.jpeg",
+    "static/media/Hero-banner5.jpeg": "/guanxin-algal-reef/static/media/Hero-banner5.da0b75f2d39d98a2f469.jpeg",
+    "static/media/Hero-banner3.jpeg": "/guanxin-algal-reef/static/media/Hero-banner3.d89f6a1b0cbbeadd285a.jpeg",
+    "static/media/Hero-banner1.jpeg": "/guanxin-algal-reef/static/media/Hero-banner1.57e7a2ac3b2b00994735.jpeg",
     "static/media/bootstrap-icons.woff?": "/guanxin-algal-reef/static/media/bootstrap-icons.c1d7432ee75fa194e499.woff",
     "static/media/bootstrap-icons.woff2?": "/guanxin-algal-reef/static/media/bootstrap-icons.a13b815539b49de48d23.woff2",
     "static/media/lowTide.png": "/guanxin-algal-reef/static/media/lowTide.759b85b695cc1bf5080e.png",
     "static/media/highTide.png": "/guanxin-algal-reef/static/media/highTide.16ec67201396ac9abc19.png",
     "index.html": "/guanxin-algal-reef/index.html",
-    "main.caceb4a8.css.map": "/guanxin-algal-reef/static/css/main.caceb4a8.css.map",
-    "main.487c21cf.js.map": "/guanxin-algal-reef/static/js/main.487c21cf.js.map"
+    "main.99d19520.css.map": "/guanxin-algal-reef/static/css/main.99d19520.css.map",
+    "main.0e580081.js.map": "/guanxin-algal-reef/static/js/main.0e580081.js.map"
   },
   "entrypoints": [
-    "static/css/main.caceb4a8.css",
-    "static/js/main.487c21cf.js"
+    "static/css/main.99d19520.css",
+    "static/js/main.0e580081.js"
   ]
 }
