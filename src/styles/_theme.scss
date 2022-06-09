@@ -1,23 +1,17 @@
 @font-face {
-  font-family: "千圖馬克手寫體";
-  src: url("../assets/千圖馬克手寫體.ttf");
+  font-family: '千圖馬克手寫體';
+  src: url('../assets/fonts/千圖馬克手寫體.ttf');
 }
 
 @font-face {
-  font-family: "馬路口圓體";
-  src: url("../assets/馬路口圓體.woff2");
-}
-
-@font-face {
-  font-family: "粉圓體";
-  src: url("../assets/粉圓體.ttf");
-}
-
-@font-face {
-  font-family: "宋明體";
-  src: url("../assets/宋明體.ttf");
+  font-family: '粉圓體';
+  src: url('../assets/fonts/粉圓體.ttf');
 }
 
 * {
-  font-family: "粉圓體";
+  font-family: '粉圓體';
+  color: #404040;
+  h2 {
+    color: #333;
+  }
 }

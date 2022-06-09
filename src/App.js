@@ -1,16 +1,13 @@
-import { Routes, Route } from "react-router-dom";
-import NavbarComponent from "./components/Navbar-component";
-import FooterComponent from "./components/Footer-component";
-import HomePage from "./pages/Home-page";
+import { Routes, Route } from 'react-router-dom';
+
+import HomePage from './containers/Home-page';
 
 function App() {
   return (
-    <div className="App">
-      <NavbarComponent />
+    <div className='App'>
       <Routes>
-        <Route path="/Guanxin-algal-reef" element={<HomePage />} />
+        <Route path='/Guanxin-algal-reef' element={<HomePage />} />
       </Routes>
-      <FooterComponent />
     </div>
   );
 }
