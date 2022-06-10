@@ -18,8 +18,7 @@ import { Pagination, Navigation } from 'swiper';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
+import { CardActionArea, Box } from '@mui/material';
 
 const activities = [
   {
@@ -109,12 +108,21 @@ const Activities = (props) => {
             <SwiperSlide key={activity.id}>
               <Card>
                 <CardActionArea>
-                  <CardMedia
-                    sx={{ height: 300 }}
-                    component='img'
-                    image={activity.img}
-                    alt='activites'
-                  />
+                  <Box sx={{ overflow: 'hidden' }}>
+                    <CardMedia
+                      sx={{
+                        height: 300,
+                        '&:hover': {
+                          opacity: 0.9,
+                          transform: 'scale(1.2)',
+                          transition: 'all ease-out 0.5s',
+                        },
+                      }}
+                      component='img'
+                      image={activity.img}
+                      alt='activites'
+                    />
+                  </Box>
                   <CardContent>
                     <h3 className='mb-2 text-xl'>{activity.title}</h3>
                     <p className='text-sm'>{activity.details}</p>

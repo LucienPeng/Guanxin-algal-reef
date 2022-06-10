@@ -32,7 +32,8 @@
     }
   }
   background-size: cover;
-  background-attachment: fixed;
+  background-position: top;
+  //background-attachment: fixed;
 }
 
 .banner-swiper {
@@ -52,7 +53,7 @@
   }
 }
 
-.coverflow-swiper {
+.introduction-swiper {
   .swiper {
     width: 100%;
     padding-top: 50px;
@@ -62,7 +63,7 @@
   .swiper-slide {
     background-position: center;
     background-size: cover;
-    width: 300px;
+    width: 400px;
     height: 300px;
   }
 
