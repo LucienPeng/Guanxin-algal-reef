@@ -22,38 +22,46 @@ import 'swiper/css/pagination';
 import { EffectCoverflow, Pagination } from 'swiper';
 import { useOpenModel } from './Hooks';
 
-const photos = [
+const carousselPhotos = [
   {
     id: '0',
     img: intro0,
+    title: '【藻礁生態環境教室】',
   },
   {
     id: '1',
     img: intro1,
+    title: '【藻礁生態環境教室】',
   },
   {
     id: '2',
     img: intro2,
+    title: '【藻礁生態環境教室】',
   },
   {
     id: '3',
     img: intro3,
+    title: '【藻礁生態環境教室】',
   },
   {
     id: '4',
     img: intro4,
+    title: '【藻礁生態環境教室】',
   },
   {
     id: '5',
     img: intro5,
+    title: '【藻礁生態環境教室】',
   },
   {
     id: '6',
     img: intro6,
+    title: '【藻礁生態環境教室】',
   },
   {
     id: '7',
     img: intro7,
+    title: '【藻礁生態環境教室】',
   },
 ];
 
@@ -103,19 +111,20 @@ function a11yProps(index) {
 const Introduction = (props) => {
   const [selected, setSelected] = useState(0);
 
-  const [open, imgIndex, setImgIndex, handleOpen, handleClose] =
-    useOpenModel(photos);
-    
-  const handleChange = (event, newselected) => {
-    setSelected(newselected);
-  };
-  const handleSelected = (props) => setImgIndex(props.activeIndex);
+  const [
+    open,
+    contentIndex,
+    setContentIndex,
+    handleOpen,
+    handleClose,
+    modal,
+    setModal,
+  ] = useOpenModel(carousselPhotos);
 
-  const modal = photos.filter((item) => {
-    if (item.id == imgIndex) {
-      return item.img;
-    }
-  });
+  const handleChange = (event, newSelected) => {
+    setSelected(newSelected);
+  };
+  const handleSelected = (props) => setContentIndex(props.activeIndex);
 
   return (
     <div
@@ -188,9 +197,9 @@ const Introduction = (props) => {
         }}
         pagination={true}
         modules={[EffectCoverflow, Pagination]}
-        className='introduction-swiper mt-16 pb-10'
+        className='introduction-swiper mt-16 pb-16'
       >
-        {photos.map((photo) => (
+        {carousselPhotos.map((photo) => (
           <SwiperSlide key={photo.id}>
             <img
               onClick={handleOpen}
@@ -198,6 +207,7 @@ const Introduction = (props) => {
               className='h-full w-full'
               alt=''
             />
+            <p className='mt-1 text-center'>{photo.title}</p>
           </SwiperSlide>
         ))}
       </Swiper>
@@ -214,7 +224,7 @@ const Introduction = (props) => {
       >
         <Fade in={open}>
           <Box sx={style}>
-            <img src={modal[0].img} alt='' />
+            <img src={modal.img} alt='' />
           </Box>
         </Fade>
       </Modal>

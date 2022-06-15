@@ -1,4 +1,7 @@
 @charset "UTF-8";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 @font-face {
   font-family: '千圖馬克手寫體';
   src: url("../assets/fonts/千圖馬克手寫體.ttf");
@@ -18,62 +21,48 @@
   color: #333;
 }
 
-.hero-banner {
-  background-size: cover;
-  background-position: top;
-}
-
 .hero-banner h1,
 .hero-banner p {
   font-family: '千圖馬克手寫體';
+  color: white;
 }
 
 .hero-banner .swiper-bg1 {
   background: url("../assets/images/Hero-banner1.jpeg") no-repeat;
+  background-position: bottom;
 }
 
 .hero-banner .swiper-bg2 {
   background: url("../assets/images/Hero-banner2.jpeg") no-repeat;
-}
-
-.hero-banner .swiper-bg2 h1,
-.hero-banner .swiper-bg2 p {
-  color: white !important;
+  background-position: bottom;
 }
 
 .hero-banner .swiper-bg3 {
   background: url("../assets/images/Hero-banner3.jpeg") no-repeat;
+  background-position: center;
 }
 
 .hero-banner .swiper-bg4 {
   background: url("../assets/images/Hero-banner4.jpeg") no-repeat;
-}
-
-.hero-banner .swiper-bg4 h1,
-.hero-banner .swiper-bg4 p {
-  color: white !important;
+  background-position: bottom;
 }
 
 .hero-banner .swiper-bg5 {
   background: url("../assets/images/Hero-banner5.jpeg") no-repeat;
+  background-position: center;
 }
 
-.hero-banner .swiper-bg5 h1,
-.hero-banner .swiper-bg5 p {
-  color: white !important;
-}
-
-.banner-swiper .swiper {
+.hero-banner .banner-swiper .swiper {
   width: 100%;
   height: 100%;
 }
 
-.banner-swiper .swiper-slide {
+.hero-banner .banner-swiper .swiper-slide {
   background-position: center;
   background-size: cover;
 }
 
-.banner-swiper .swiper-slide img {
+.hero-banner .banner-swiper .swiper-slide img {
   display: block;
   width: 100%;
 }
@@ -122,7 +111,79 @@
      object-fit: cover;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+.dialog-swiper .swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.dialog-swiper .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.dialog-swiper .swiper-slide img {
+  display: block;
+  width: 800;
+  height: 600;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.dialog-swiper .swiper {
+  width: 100%;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dialog-swiper .swiper-slide {
+  background-size: cover;
+  background-position: center;
+}
+
+.dialog-swiper .mySwiper2 {
+  height: 80%;
+  width: 100%;
+}
+
+.dialog-swiper .mySwiper {
+  height: 20%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px 0;
+}
+
+.dialog-swiper .mySwiper .swiper-slide {
+  width: 25%;
+  height: 100%;
+  opacity: 0.4;
+}
+
+.dialog-swiper .mySwiper .swiper-slide-thumb-active {
+  opacity: 1;
+}
+
+.dialog-swiper .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.swiper {
+  --swiper-navigation-color: #fff;
+  --swiper-pagination-color: #333;
+}
 /*# sourceMappingURL=all.css.map */

@@ -7,7 +7,7 @@ const Navbar = (props) => {
   const aboutRef = props.aboutRef;
   const newsRef = props.newsRef;
   const activityRef = props.activityRef;
-  const contactRef = props.contactRef;
+  const touristicInfoRef = props.touristicInfoRef;
   const neighborhoodRef = props.neighborhoodRef;
   const trafficRef = props.trafficRef;
   const menuCollapseRef = useRef('');
@@ -35,7 +35,7 @@ const Navbar = (props) => {
 
   const scrollToHandle = (ref) => {
     window.scrollTo({
-      top: ref.current.offsetTop,
+      top: ref.current.offsetTop - 200,
       behavior: 'smooth',
     });
   };
@@ -52,7 +52,7 @@ const Navbar = (props) => {
     { id: '5', item: '附近景點', ref: neighborhoodRef },
     { id: '6', item: '特色產品', ref: null },
     { id: '7', item: '交通指南', ref: trafficRef },
-    { id: '8', item: '遊憩資訊', ref: contactRef },
+    { id: '8', item: '遊憩資訊', ref: touristicInfoRef },
   ];
 
   return (
