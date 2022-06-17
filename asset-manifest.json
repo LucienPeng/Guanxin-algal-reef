@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/guanxin-algal-reef/static/css/main.bf224575.css",
-    "main.js": "/guanxin-algal-reef/static/js/main.664a4b20.js",
+    "main.css": "/guanxin-algal-reef/static/css/main.75b23f31.css",
+    "main.js": "/guanxin-algal-reef/static/js/main.f247385e.js",
     "static/media/千圖馬克手寫體.ttf": "/guanxin-algal-reef/static/media/千圖馬克手寫體.f1804eb11e45a3b62120.ttf",
     "static/media/粉圓體.ttf": "/guanxin-algal-reef/static/media/粉圓體.8b3953f644e641262a5c.ttf",
     "static/media/neighborhood2.jpg": "/guanxin-algal-reef/static/media/neighborhood2.724d6d08a5d90fe3a3be.jpg",
@@ -32,11 +32,11 @@
     "static/media/lowTide.png": "/guanxin-algal-reef/static/media/lowTide.759b85b695cc1bf5080e.png",
     "static/media/highTide.png": "/guanxin-algal-reef/static/media/highTide.16ec67201396ac9abc19.png",
     "index.html": "/guanxin-algal-reef/index.html",
-    "main.bf224575.css.map": "/guanxin-algal-reef/static/css/main.bf224575.css.map",
-    "main.664a4b20.js.map": "/guanxin-algal-reef/static/js/main.664a4b20.js.map"
+    "main.75b23f31.css.map": "/guanxin-algal-reef/static/css/main.75b23f31.css.map",
+    "main.f247385e.js.map": "/guanxin-algal-reef/static/js/main.f247385e.js.map"
   },
   "entrypoints": [
-    "static/css/main.bf224575.css",
-    "static/js/main.664a4b20.js"
+    "static/css/main.75b23f31.css",
+    "static/js/main.f247385e.js"
   ]
 }
