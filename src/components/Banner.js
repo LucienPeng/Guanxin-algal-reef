@@ -36,7 +36,7 @@ const banners = [
 
 const Banner = () => {
   return (
-    <div className='hero-banner '>
+    <div className='hero-banner text-center'>
       <Swiper
         spaceBetween={100}
         effect={'fade'}

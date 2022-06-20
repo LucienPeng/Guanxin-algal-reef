@@ -65,10 +65,10 @@ const Navbar = (props) => {
         <div className=' mx-9 flex h-12 text-3xl text-black '>
           <button
             onClick={menuHandler}
-            className='relative ml-auto block h-12 w-12 cursor-pointer p-4 lg:hidden'
+            className='relative ml-auto block h-12 w-12 cursor-pointer p-4 lg:hidden '
           >
             <svg
-              className='fill-current text-white'
+              className='fill-current '
               xmlns='http://www.w3.org/2000/svg'
               viewBox='0 0 20 20'
             >
@@ -85,8 +85,8 @@ const Navbar = (props) => {
                 to='#'
                 className='flex-no-grow flex-no-shrink
                 relative flex items-center py-2 px-4 leading-normal text-white
-                no-underline transition-all ease-out hover:scale-110
-                hover:text-amber-300'
+                no-underline transition-all ease-out hover:text-amber-300
+                md:hover:scale-110'
               >
                 {menu.item}
               </Link>

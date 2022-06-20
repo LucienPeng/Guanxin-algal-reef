@@ -56,19 +56,19 @@ const Neighborhood = (props) => {
       ref={props.neighborhoodRef}
       className='container mx-auto mb-20 mt-10 w-full'
     >
-      <div className='flex flex-col'>
-        <h2 className='mb-6 text-4xl'>鄰近景點</h2>
+      <div className='flex flex-col px-2'>
+        <h2 className='mb-6 text-center text-4xl sm:text-left'>鄰近景點</h2>
         <Grid container spacing={2}>
           {neighbohoods.map((neighborhood) => (
             <Grid key={neighborhood.id} item md={6} xs={12}>
-              <Card sx={{ height: 200 }} key={neighborhood.id} elevation={3}>
+              <Card elevation={3}>
                 <CardActionArea>
                   <Box sx={{ display: 'flex' }}>
-                    <Box sx={{ overflow: 'hidden' }}>
+                    <Box sx={{ overflow: 'hidden', height: 250 }}>
                       <CardMedia
                         sx={{
                           objectFit: 'cover',
-                          height: 200,
+                          height: '100%',
                           width: 700,
                           '&:hover': {
                             opacity: 0.9,

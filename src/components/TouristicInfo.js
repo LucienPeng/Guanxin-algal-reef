@@ -17,13 +17,12 @@ const TouristicInfo = (props) => {
   return (
     <div
       ref={props.touristicInfoRef}
-      className='container mx-auto mt-20 mb-20 w-full'
+      className='container mx-auto mt-20 mb-20 w-full px-2'
     >
-      <h2 className='mb-6 text-4xl'>遊憩資訊</h2>
+      <h2 className='mb-6 text-center text-4xl sm:text-left'>遊憩資訊</h2>
 
-      <div className='grid grid-cols-3 gap-10 '>
-        
-        <ul className='leading-10'>
+      <div className='grid gap-10 sm:grid-cols-3 '>
+        <ul className='text-center leading-10 sm:text-left'>
           <ul>
             <li>
               <strong>【藻礁保護區】</strong>
@@ -57,7 +56,7 @@ const TouristicInfo = (props) => {
         </ul>
 
         <ul className='leading-10'>
-          <li>
+          <li className='text-center sm:text-left'>
             <strong>【藻礁生態環境教室】</strong>
           </li>
           <li>
@@ -77,7 +76,7 @@ const TouristicInfo = (props) => {
         </ul>
 
         <ul className='leading-10'>
-          <li>
+          <li className='text-center sm:text-left'>
             <strong>【旅遊叮嚀】</strong>
           </li>
           <li>
@@ -98,7 +97,6 @@ const TouristicInfo = (props) => {
           </li>
           <li>四、請勿踩踏礁石與藻類</li>
         </ul>
-
       </div>
     </div>
   );

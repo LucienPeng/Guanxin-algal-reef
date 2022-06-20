@@ -131,12 +131,30 @@ const Introduction = (props) => {
       ref={props.aboutRef}
       className='container mx-auto mt-20 min-h-screen w-full'
     >
-      <h2 className='mb-6 text-4xl'>認識我們</h2>
-      <Tabs value={selected} onChange={handleChange} aria-label='introductions'>
-        <Tab label='場館簡介' {...a11yProps(0)} />
-        <Tab label='時光隧道' {...a11yProps(1)} />
-        <Tab label='認識藻礁' {...a11yProps(2)} />
-      </Tabs>
+      <h2 className='mb-6 text-center text-4xl sm:text-left'>認識我們</h2>
+      <div className='block sm:hidden'>
+        <Tabs
+          value={selected}
+          onChange={handleChange}
+          aria-label='introductions'
+          centered
+        >
+          <Tab label='場館簡介' {...a11yProps(0)} />
+          <Tab label='時光隧道' {...a11yProps(1)} />
+          <Tab label='認識藻礁' {...a11yProps(2)} />
+        </Tabs>
+      </div>
+      <div className='hidden sm:block'>
+        <Tabs
+          value={selected}
+          onChange={handleChange}
+          aria-label='introductions'
+        >
+          <Tab label='場館簡介' {...a11yProps(0)} />
+          <Tab label='時光隧道' {...a11yProps(1)} />
+          <Tab label='認識藻礁' {...a11yProps(2)} />
+        </Tabs>
+      </div>
 
       <TabPanel value={selected} index={0}>
         <span>

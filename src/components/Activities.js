@@ -105,7 +105,7 @@ const Activities = (props) => {
       className='container mx-auto mb-10 mt-20 w-full'
     >
       <div className='flex-col items-center'>
-        <h2 className='mb-6 text-4xl '>活動體驗</h2>
+        <h2 className='mb-6 text-center text-4xl sm:text-left'>活動體驗</h2>
         <Swiper
           slidesPerView={4}
           spaceBetween={5}

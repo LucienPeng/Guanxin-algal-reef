@@ -1,12 +1,28 @@
-import { useState, useEffect, useRef, useLayoutEffect } from 'react';
-import { Paper, Alert, Button, Stack } from '@mui/material';
+import React, { useState, useEffect } from 'react';
+import {
+  Box,
+  Paper,
+  Alert,
+  Button,
+  Stack,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TablePagination,
+  TableRow,
+} from '@mui/material';
+
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 
 import highTide from '../assets/icons/highTide.png';
 import lowTide from '../assets/icons/lowTide.png';
-import dayjs from 'dayjs';
 
 const url =
   'https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-A0021-001?Authorization=CWB-030D5CFD-3027-4E9D-B27E-59A1E6E3386A&format=JSON&locationName=%E6%A1%83%E5%9C%92%E5%B8%82%E6%96%B0%E5%B1%8B%E5%8D%80&sort=validTime';
@@ -34,6 +50,16 @@ const TideForecast = () => {
   const [tideHeight2, setTideHeight2] = useState('');
   const [tideHeight3, setTideHeight3] = useState('');
   const [tideHeight4, setTideHeight4] = useState('');
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const nextTideForecastHandle = () => {
     if (data.length - 1 > counter) {
@@ -79,6 +105,7 @@ const TideForecast = () => {
       setTideDifference(data[0 + counter].weatherElement[1].elementValue);
 
       const sortedData = data.slice().map((item) => {
+        item.id = data.indexOf(item);
         item.weatherElement[2].time.sort((a, b) => {
           return a.dataTime.localeCompare(b.dataTime);
         });
@@ -236,10 +263,8 @@ const TideForecast = () => {
               </td>
             </tr>
             <tr className=''>
-              <th className='px-6 pb-4 font-medium text-gray-900 '>
-                相對海平面
-                <br />
-                潮高(cm)
+              <th className='... truncate px-6 pb-4 font-medium text-gray-900 hover:text-clip '>
+                相對海平面潮高(cm)
               </th>
               <td className='px-6 pb-4'>{tideHeight1}</td>
               <td className='px-6 pb-4'>{tideHeight2}</td>
@@ -264,7 +289,7 @@ const TideForecast = () => {
           </Alert>
         )}
         <div className='mt-5 flex items-center justify-center'>
-          <Stack direction='row' spacing={2}>
+          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
             <Button
               onClick={previousTideForecastHandle}
               variant='contained'
@@ -279,24 +304,34 @@ const TideForecast = () => {
             >
               下一日潮汐預報
             </Button>
-            <Button variant='outlined' endIcon={<CalendarTodayIcon />}>
+            <Button
+              onClick={handleClickOpen}
+              variant='outlined'
+              endIcon={<CalendarTodayIcon />}
+            >
               30日潮汐預報表
             </Button>
           </Stack>
-          {/* <button
-            type='button'
-            className='mr-2 rounded-lg bg-gradient-to-r from-sky-400 via-sky-500 to-sky-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gradient-to-br focus:outline-none focus:ring-4 focus:ring-sky-300 dark:focus:ring-sky-800'
-          ></button> */}
-          {/* <button
-            type='button'
-            className='mr-2 rounded-lg bg-gradient-to-r from-sky-400 via-sky-500 to-sky-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gradient-to-br focus:outline-none focus:ring-4 focus:ring-sky-300 dark:focus:ring-sky-800'
-          ></button> */}
-          {/* <button
-            type='button'
-            className='mr-2 rounded-lg bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gradient-to-br focus:outline-none focus:ring-4 focus:ring-sky-300 dark:focus:ring-sky-800'
-          ></button> */}
+          <Dialog
+            fullWidth={true}
+            maxWidth={'lg'}
+            open={open}
+            onClose={handleClose}
+            aria-labelledby='alert-dialog-title'
+            aria-describedby='alert-dialog-description'
+          >
+            <DialogContent>
+              <Box sx={{ height: 650, width: '100%' }}>
+                <ForecastTable data={data} />
+              </Box>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleClose} autoFocus>
+                關閉
+              </Button>
+            </DialogActions>
+          </Dialog>
         </div>
-
         <ul className='text-start p-5 pt-4 pb-2 text-sm'>
           <li>
             <hr className='m-3' />
@@ -311,6 +346,150 @@ const TideForecast = () => {
           </li>
         </ul>
       </div>
+    </Paper>
+  );
+};
+const columns = [
+  { id: 'startTime', align: 'left', label: '日期', minWidth: 120 },
+  { id: 'lunaCalender', align: 'left', label: '農曆', minWidth: 100 },
+  { id: 'time1', align: 'center', label: '時間' },
+  { id: 'tide1', align: 'left', label: '潮差', minWidth: 150 },
+  { id: 'time2', align: 'center', label: '時間' },
+  { id: 'tide2', align: 'left', label: '潮差', minWidth: 150 },
+  { id: 'time3', align: 'center', label: '時間' },
+  { id: 'tide3', align: 'left', label: '潮差', minWidth: 150 },
+  { id: 'time4', align: 'center', label: '時間' },
+  { id: 'tide4', align: 'left', label: '潮差', minWidth: 150 },
+];
+
+const ForecastTable = ({ data }) => {
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
+
+  return (
+    <Paper elevation={3} sx={{ width: '100%', overflow: 'hidden' }}>
+      <TableContainer sx={{ height: 600 }}>
+        <Table stickyHeader aria-label='sticky table'>
+          <TableHead>
+            <TableRow>
+              {columns.map((column) => (
+                <TableCell
+                  key={column.id}
+                  align={column.align}
+                  style={{ minWidth: column.minWidth }}
+                >
+                  {column.label}
+                </TableCell>
+              ))}
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {data
+              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              .map((row) => (
+                <TableRow
+                  key={row.id}
+                >
+                  <TableCell align='left'>
+                    {row.startTime.slice(0, 10)}
+                  </TableCell>
+                  <TableCell align='left'>
+                    {row.weatherElement[0].elementValue}
+                  </TableCell>
+                  <TableCell align='center'>
+                    {row.weatherElement[2].time[0].dataTime.slice(11, 16)}
+                  </TableCell>
+                  <TableCell
+                    sx={
+                      row.weatherElement[2].time[0].parameter[0]
+                        .parameterValue === '滿潮'
+                        ? { color: 'red' }
+                        : { color: 'teal' }
+                    }
+                  >
+                    {row.weatherElement[2].time[0].parameter[0].parameterValue}{' '}
+                    {`${row.weatherElement[2].time[0].parameter[2].parameterValue}m`}
+                  </TableCell>
+                  <TableCell align='center'>
+                    {row.weatherElement[2].time[1].dataTime.slice(11, 16)}
+                  </TableCell>
+                  <TableCell
+                    align='left'
+                    sx={
+                      row.weatherElement[2].time[1].parameter[0]
+                        .parameterValue === '滿潮'
+                        ? { color: 'red' }
+                        : { color: 'teal' }
+                    }
+                  >
+                    {row.weatherElement[2].time[1].parameter[0].parameterValue}{' '}
+                    {`${row.weatherElement[2].time[1].parameter[2].parameterValue}m`}
+                  </TableCell>
+                  <TableCell align='center'>
+                    {row.weatherElement[2].time[2].dataTime.slice(11, 16)}
+                  </TableCell>
+                  <TableCell
+                    align='left'
+                    sx={
+                      row.weatherElement[2].time[2].parameter[0]
+                        .parameterValue === '滿潮'
+                        ? { color: 'red' }
+                        : { color: 'teal' }
+                    }
+                  >
+                    {row.weatherElement[2].time[2].parameter[0].parameterValue}{' '}
+                    {`${row.weatherElement[2].time[2].parameter[2].parameterValue}m`}
+                  </TableCell>
+                  {row.weatherElement[2].time.length === 4 ? (
+                    <>
+                      <TableCell align='center'>
+                        {row.weatherElement[2].time[3].dataTime.slice(11, 16)}
+                      </TableCell>
+                      <TableCell
+                        align='left'
+                        sx={
+                          row.weatherElement[2].time[3].parameter[0]
+                            .parameterValue === '滿潮'
+                            ? { color: 'red' }
+                            : { color: 'teal' }
+                        }
+                      >
+                        {
+                          row.weatherElement[2].time[3].parameter[0]
+                            .parameterValue
+                        }{' '}
+                        {`${row.weatherElement[2].time[3].parameter[2].parameterValue}m`}
+                      </TableCell>
+                    </>
+                  ) : (
+                    <>
+                      <TableCell align='center'>無</TableCell>
+                      <TableCell align='left'>無</TableCell>
+                    </>
+                  )}
+                </TableRow>
+              ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+      <TablePagination
+        rowsPerPageOptions={[10, 20, 30]}
+        component='div'
+        count={data.length}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        onPageChange={handleChangePage}
+        onRowsPerPageChange={handleChangeRowsPerPage}
+      />
     </Paper>
   );
 };
