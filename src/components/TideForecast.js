@@ -173,7 +173,7 @@ const TideForecast = () => {
   }, [counter, data]);
 
   return loading ? null : (
-    <Paper elevation={3} className='w-full p-5'>
+    <Paper elevation={3} className='h-full w-full p-5'>
       <div className='flex flex-col items-center justify-center'>
         <div className='flex flex-col items-center justify-center'>
           <span className='text-2xl'>{date}</span>
@@ -291,6 +291,7 @@ const TideForecast = () => {
         <div className='mt-5 flex items-center justify-center'>
           <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
             <Button
+              className='whitespace-nowrap'
               onClick={previousTideForecastHandle}
               variant='contained'
               startIcon={<ArrowLeftIcon />}
@@ -298,6 +299,7 @@ const TideForecast = () => {
               前一日潮汐預報
             </Button>
             <Button
+              className='whitespace-nowrap'
               onClick={nextTideForecastHandle}
               variant='contained'
               endIcon={<ArrowRightIcon />}
@@ -305,6 +307,7 @@ const TideForecast = () => {
               下一日潮汐預報
             </Button>
             <Button
+              className='whitespace-nowrap'
               onClick={handleClickOpen}
               variant='outlined'
               endIcon={<CalendarTodayIcon />}
@@ -396,9 +399,7 @@ const ForecastTable = ({ data }) => {
             {data
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row) => (
-                <TableRow
-                  key={row.id}
-                >
+                <TableRow key={row.id}>
                   <TableCell align='left'>
                     {row.startTime.slice(0, 10)}
                   </TableCell>

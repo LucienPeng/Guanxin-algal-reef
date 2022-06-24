@@ -1,15 +1,25 @@
 import React from 'react';
 import News from './News';
 import TideForecast from './TideForecast';
+import { Grid } from '@mui/material';
 
 const FieldInfo = (props) => {
   return (
     <div className='container mx-auto mt-10 w-full'>
       <h2 className='mb-6 text-center text-4xl sm:text-left'>遊憩資訊</h2>
-      <div className='h-full justify-between gap-10 px-2 sm:flex'>
-        <TideForecast />
-        <News newsRef={props.newsRef} />
-      </div>
+      <Grid
+        container
+        className='px-2'
+        direction={{ xs: 'column', lg: 'row' }}
+        spacing={5}
+      >
+        <Grid item xs={6}>
+          <TideForecast />
+        </Grid>
+        <Grid item xs={6}>
+          <News newsRef={props.newsRef} />
+        </Grid>
+      </Grid>
     </div>
   );
 };

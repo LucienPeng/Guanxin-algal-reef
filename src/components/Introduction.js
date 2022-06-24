@@ -128,6 +128,7 @@ const Introduction = (props) => {
 
   return (
     <div
+      
       ref={props.aboutRef}
       className='container mx-auto mt-20 min-h-screen w-full'
     >

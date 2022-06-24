@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useActiveItems } from '../components/Hooks';
 
 const Navbar = (props) => {
   //Refs
@@ -14,6 +15,7 @@ const Navbar = (props) => {
   // 如果 Scroll Y 軸 > 5 為 true；反之則為 false
   const [isScrolled, setIsScrolled] = useState(false);
   const [navShadow, setNavShadow] = useState('');
+  const [activeLink, setActiveLink] = useState();
 
   const listenScrollEvent = () => {
     if (window.scrollY > 5) {
@@ -33,18 +35,19 @@ const Navbar = (props) => {
     }
   };
 
-  const scrollToHandle = (ref) => {
+  const scrollToHandle = (event, ref) => {
     window.scrollTo({
       top: ref.current.offsetTop - 200,
       behavior: 'smooth',
     });
+    setActiveLink(ref);
   };
 
   useEffect(() => {
     window.addEventListener('scroll', listenScrollEvent);
   }, [isScrolled]);
 
-  const navitems = [
+  const NAV_BAR_LIST = [
     { id: '1', item: '首頁', ref: homeRef },
     { id: '2', item: '認識我們', ref: aboutRef },
     { id: '3', item: '最新消息', ref: newsRef },
@@ -52,7 +55,11 @@ const Navbar = (props) => {
     { id: '5', item: '附近景點', ref: neighborhoodRef },
     { id: '6', item: '特色產品', ref: null },
     { id: '7', item: '交通指南', ref: trafficRef },
-    { id: '8', item: '遊憩資訊', ref: touristicInfoRef },
+    {
+      id: '8',
+      item: '遊憩資訊',
+      ref: touristicInfoRef,
+    },
   ];
 
   return (
@@ -78,15 +85,14 @@ const Navbar = (props) => {
         </div>
         <div className='lg:flex-no-shrink lg:flex lg:items-stretch'>
           <div className='ml-auto hidden lg:flex' ref={menuCollapseRef}>
-            {navitems.map((menu) => (
+            {NAV_BAR_LIST.map((menu) => (
               <Link
                 key={menu.id}
-                onClick={() => scrollToHandle(menu.ref)}
+                onClick={(event) => scrollToHandle(event, menu.ref)}
                 to='#'
-                className='flex-no-grow flex-no-shrink
-                relative flex items-center py-2 px-4 leading-normal text-white
-                no-underline transition-all ease-out hover:text-amber-300
-                md:hover:scale-110'
+                className={`flex-no-grow flex-no-shrink relative flex items-center py-2 px-4 leading-normal text-white no-underline transition-all ease-out hover:bg-sky-500 ${
+                  activeLink === menu.ref ? ' bg-sky-500' : null
+                }`}
               >
                 {menu.item}
               </Link>
