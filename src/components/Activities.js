@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, {  useState } from 'react';
 import activity1 from '../assets/images/activity-1.jpeg';
 import activity2 from '../assets/images/activity-2.jpeg';
 import activity3 from '../assets/images/activity-3.jpeg';
@@ -97,7 +97,10 @@ const Activities = (props) => {
     setModal,
   ] = useOpenModel(activities);
 
-  const handleSelected = (e) => setContentIndex(e.target.dataset.id);
+  const handleSelected = (e) => {
+    setContentIndex(e.target.dataset.id);
+    handleOpen();
+  };
 
   return (
     <div
@@ -138,8 +141,11 @@ const Activities = (props) => {
           className='activity-swiper pb-16'
         >
           {activities.map((activity) => (
-            <SwiperSlide onClick={handleSelected} key={activity.id}>
-              <Card onClick={handleOpen} elevation={2}>
+            <SwiperSlide
+              onClick={(activity) => handleSelected(activity)}
+              key={activity.id}
+            >
+              <Card elevation={2}>
                 <CardActionArea>
                   <Box sx={{ overflow: 'hidden' }}>
                     <CardMedia
@@ -239,27 +245,27 @@ const ActivityDetails = ({ open, handleClose, modal }) => {
             </SwiperSlide>
           </Swiper>
           <DialogContentText id='alert-dialog-slide-description'>
-            <div>
+            <span>
               活動解說：
               <br />
               {modal.brief}
-            </div>
-            <div>
+            </span>
+            <span>
               費用：
               <br />
-            </div>
-            <div>
+            </span>
+            <span>
               時長：
               <br />
-            </div>
-            <div>
+            </span>
+            <span>
               地點：
               <br />
-            </div>
-            <div>
+            </span>
+            <span>
               注意事項：
               <br />
-            </div>
+            </span>
           </DialogContentText>
         </DialogContent>
         <DialogActions>

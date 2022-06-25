@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { Tabs, Tab, Box, Modal, Fade, Button, Backdrop } from '@mui/material';
+import { Tabs, Tab, Box, Modal, Fade, Backdrop } from '@mui/material';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { useTheme } from '@material-ui/core/styles';
+
 import intro0 from '../assets/images/intro1.jpeg';
 import intro1 from '../assets/images/intro2.jpeg';
 import intro2 from '../assets/images/intro3.jpeg';
@@ -126,36 +129,24 @@ const Introduction = (props) => {
   };
   const handleSelected = (props) => setContentIndex(props.activeIndex);
 
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down('xs'));
   return (
     <div
-      
       ref={props.aboutRef}
       className='container mx-auto mt-20 min-h-screen w-full'
     >
       <h2 className='mb-6 text-center text-4xl sm:text-left'>認識我們</h2>
-      <div className='block sm:hidden'>
-        <Tabs
-          value={selected}
-          onChange={handleChange}
-          aria-label='introductions'
-          centered
-        >
-          <Tab label='場館簡介' {...a11yProps(0)} />
-          <Tab label='時光隧道' {...a11yProps(1)} />
-          <Tab label='認識藻礁' {...a11yProps(2)} />
-        </Tabs>
-      </div>
-      <div className='hidden sm:block'>
-        <Tabs
-          value={selected}
-          onChange={handleChange}
-          aria-label='introductions'
-        >
-          <Tab label='場館簡介' {...a11yProps(0)} />
-          <Tab label='時光隧道' {...a11yProps(1)} />
-          <Tab label='認識藻礁' {...a11yProps(2)} />
-        </Tabs>
-      </div>
+      <Tabs
+        value={selected}
+        onChange={handleChange}
+        aria-label='introductions'
+        centered={matches}
+      >
+        <Tab label='場館簡介' {...a11yProps(0)} />
+        <Tab label='時光隧道' {...a11yProps(1)} />
+        <Tab label='認識藻礁' {...a11yProps(2)} />
+      </Tabs>
 
       <TabPanel value={selected} index={0}>
         <span>
