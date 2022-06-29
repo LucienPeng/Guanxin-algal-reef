@@ -1,6 +1,4 @@
 import { useRef, useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { useActiveItems } from '../components/Hooks';
 
 const Navbar = (props) => {
   //Refs
@@ -86,16 +84,16 @@ const Navbar = (props) => {
         <div className='lg:flex-no-shrink lg:flex lg:items-stretch'>
           <div className='ml-auto hidden lg:flex' ref={menuCollapseRef}>
             {NAV_BAR_LIST.map((menu) => (
-              <Link
+              <li
                 key={menu.id}
                 onClick={(event) => scrollToHandle(event, menu.ref)}
                 to='#'
-                className={`flex-no-grow flex-no-shrink relative flex items-center py-2 px-4 leading-normal text-white no-underline transition-all ease-out hover:bg-sky-500 ${
+                className={`flex-no-grow flex-no-shrink relative flex cursor-pointer items-center py-2 px-4 leading-normal text-white no-underline hover:bg-sky-500 ${
                   activeLink === menu.ref ? ' bg-sky-500' : null
                 }`}
               >
                 {menu.item}
-              </Link>
+              </li>
             ))}
           </div>
         </div>

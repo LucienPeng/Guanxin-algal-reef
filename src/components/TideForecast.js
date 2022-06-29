@@ -329,7 +329,7 @@ const TideForecast = () => {
               </Box>
             </DialogContent>
             <DialogActions>
-              <Button onClick={handleClose} autoFocus>
+              <Button onClick={handleClose} variant='contained' autoFocus>
                 關閉
               </Button>
             </DialogActions>
@@ -380,7 +380,7 @@ const ForecastTable = ({ data }) => {
 
   return (
     <Paper elevation={3} sx={{ width: '100%', overflow: 'hidden' }}>
-      <TableContainer sx={{ height: 600 }}>
+      <TableContainer sx={{ height: '100%' }}>
         <Table stickyHeader aria-label='sticky table'>
           <TableHead>
             <TableRow>
@@ -409,66 +409,80 @@ const ForecastTable = ({ data }) => {
                   <TableCell align='center'>
                     {row.weatherElement[2].time[0].dataTime.slice(11, 16)}
                   </TableCell>
-                  <TableCell
-                    sx={
-                      row.weatherElement[2].time[0].parameter[0]
-                        .parameterValue === '滿潮'
-                        ? { color: 'red' }
-                        : { color: 'teal' }
-                    }
-                  >
-                    {row.weatherElement[2].time[0].parameter[0].parameterValue}{' '}
-                    {`${row.weatherElement[2].time[0].parameter[2].parameterValue}m`}
+                  <TableCell>
+                    <span
+                      className={
+                        row.weatherElement[2].time[0].parameter[0]
+                          .parameterValue === '滿潮'
+                          ? 'text-red-500'
+                          : 'text-sky-500'
+                      }
+                    >
+                      {
+                        row.weatherElement[2].time[0].parameter[0]
+                          .parameterValue
+                      }{' '}
+                      {`${row.weatherElement[2].time[0].parameter[2].parameterValue}m`}
+                    </span>
                   </TableCell>
                   <TableCell align='center'>
                     {row.weatherElement[2].time[1].dataTime.slice(11, 16)}
                   </TableCell>
-                  <TableCell
-                    align='left'
-                    sx={
-                      row.weatherElement[2].time[1].parameter[0]
-                        .parameterValue === '滿潮'
-                        ? { color: 'red' }
-                        : { color: 'teal' }
-                    }
-                  >
-                    {row.weatherElement[2].time[1].parameter[0].parameterValue}{' '}
-                    {`${row.weatherElement[2].time[1].parameter[2].parameterValue}m`}
+                  <TableCell align='left'>
+                    <span
+                      className={
+                        row.weatherElement[2].time[1].parameter[0]
+                          .parameterValue === '滿潮'
+                          ? 'text-red-500'
+                          : 'text-sky-500'
+                      }
+                    >
+                      {
+                        row.weatherElement[2].time[1].parameter[0]
+                          .parameterValue
+                      }{' '}
+                      {`${row.weatherElement[2].time[1].parameter[2].parameterValue}m`}
+                    </span>
                   </TableCell>
                   <TableCell align='center'>
                     {row.weatherElement[2].time[2].dataTime.slice(11, 16)}
                   </TableCell>
-                  <TableCell
-                    align='left'
-                    sx={
-                      row.weatherElement[2].time[2].parameter[0]
-                        .parameterValue === '滿潮'
-                        ? { color: 'red' }
-                        : { color: 'teal' }
-                    }
-                  >
-                    {row.weatherElement[2].time[2].parameter[0].parameterValue}{' '}
-                    {`${row.weatherElement[2].time[2].parameter[2].parameterValue}m`}
+                  <TableCell align='left'>
+                    <span
+                      className={
+                        row.weatherElement[2].time[2].parameter[0]
+                          .parameterValue === '滿潮'
+                          ? 'text-red-500'
+                          : 'text-sky-500'
+                      }
+                    >
+                      {
+                        row.weatherElement[2].time[2].parameter[0]
+                          .parameterValue
+                      }{' '}
+                      {`${row.weatherElement[2].time[2].parameter[2].parameterValue}m`}
+                    </span>
                   </TableCell>
                   {row.weatherElement[2].time.length === 4 ? (
                     <>
                       <TableCell align='center'>
                         {row.weatherElement[2].time[3].dataTime.slice(11, 16)}
                       </TableCell>
-                      <TableCell
-                        align='left'
-                        sx={
-                          row.weatherElement[2].time[3].parameter[0]
-                            .parameterValue === '滿潮'
-                            ? { color: 'red' }
-                            : { color: 'teal' }
-                        }
-                      >
-                        {
-                          row.weatherElement[2].time[3].parameter[0]
-                            .parameterValue
-                        }{' '}
-                        {`${row.weatherElement[2].time[3].parameter[2].parameterValue}m`}
+                      <TableCell align='left'>
+                        <span
+                          className={
+                            row.weatherElement[2].time[3].parameter[0]
+                              .parameterValue === '滿潮'
+                              ? 'text-red-500'
+                              : 'text-sky-500'
+                          }
+                        >
+                          {
+                            row.weatherElement[2].time[3].parameter[0]
+                              .parameterValue
+                          }{' '}
+                          {`${row.weatherElement[2].time[3].parameter[2].parameterValue}m`}
+                        </span>
                       </TableCell>
                     </>
                   ) : (

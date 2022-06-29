@@ -17,7 +17,6 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 const News = (props) => {
   const fetchedData = useFetchDataFirebase();
   const newsList = fetchedData[0];
-  console.log(newsList);
   const [expanded, setExpanded] = React.useState(false);
 
   const handleChange = (panel) => (event, isExpanded) => {

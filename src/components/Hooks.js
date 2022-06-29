@@ -9,6 +9,7 @@ import {
   getDocs,
   getDoc,
   setDoc,
+  deleteDoc,
   query,
   orderBy,
   limit,
@@ -66,7 +67,7 @@ export const useFetchDataFirebase = () => {
   const arr = [];
   const [data, setData] = React.useState([]);
 
-  React.useEffect(async () => {
+  const fetchData = React.useCallback(async () => {
     const q = query(collection(db, 'news'), orderBy('date', 'asc'), limit(30));
 
     const querySnapshot = await getDocs(q);
@@ -74,9 +75,29 @@ export const useFetchDataFirebase = () => {
       arr.unshift(doc.data());
     });
     setData(arr);
+    console.log(data);
+  }, [data, setData]);
+
+  React.useEffect(() => {
+    fetchData();
   }, []);
 
-  return [data];
+  return [data, fetchData];
+};
+
+export const useDeleteDataFirebase = (collection, arr) => {
+  const deleteSelectedDatas = async () => {
+    const selected = arr.filter((item) => {
+      if (item.value === true) return item.name;
+    });
+
+    const deleteSelected = await selected.forEach((item) => {
+      console.log(item);
+      deleteDoc(doc(db, collection, item.name));
+    });
+  };
+
+  return deleteSelectedDatas;
 };
 
 export const usePagination = (data, itemsPerPage) => {
@@ -106,14 +127,25 @@ export const usePagination = (data, itemsPerPage) => {
 };
 
 export const useLocalStorage = (key, value) => {
-  const setItem = () => {
+  const setItem = (key, value) => {
     localStorage.setItem(key, JSON.stringify(value));
   };
-  const getItem = () => {
-    return JSON.parse(window.localStorage.getItem(key));
+  const getItem = (key) => {
+    return JSON.parse(localStorage.getItem(key));
   };
 
   return { setItem, getItem };
+};
+
+export const useSetActiveItem = (selected) => {
+  const [activeItem, setActiveItem] = React.useState(selected);
+  const [open, setOpen] = React.useState(false);
+
+  const handleClick = (selected) => {
+    setActiveItem(selected);
+    setOpen(!open);
+  };
+  return [activeItem, handleClick, open];
 };
 
 // export const useFetchDataFirebase = () => {
