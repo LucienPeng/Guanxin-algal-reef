@@ -1,6 +1,6 @@
 {
   "name": "guanxin-algal-reef",
-  "homepage": "https://lucienpeng.github.io/guanxin-algal-reef",
+
   "version": "1.0.0",
   "private": true,
   "dependencies": {

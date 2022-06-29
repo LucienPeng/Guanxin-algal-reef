@@ -21,9 +21,10 @@ function App() {
   const localStorage = useLocalStorage();
 
   useEffect(() => {
-    setIsLoggedIn(localStorage.getItem('isLoggedIn'));
-    setIsAuth(localStorage.getItem('isLoggedIn'));
-  }, [isLoggedIn]);
+    const loginstatus = localStorage.getItem('isLoggedIn');
+    setIsLoggedIn(loginstatus === null ? false : loginstatus);
+    setIsAuth(loginstatus === null ? false : loginstatus);
+  }, [isLoggedIn, localStorage]);
 
   return (
     <AuthContext.Provider
@@ -33,7 +34,7 @@ function App() {
       }}
     >
       <Routes>
-        <Route path='/Guanxin-algal-reef' element={<HomePage />} />
+        <Route path='/' element={<HomePage />} />
         <Route path='/admin' element={<AdminPage />} />
         {isAuth && (
           <>

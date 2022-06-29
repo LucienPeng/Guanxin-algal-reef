@@ -14,6 +14,7 @@ import {
 } from '@mui/material';
 import AuthContext from './LoginAuthContext';
 import { useLocalStorage, useSetActiveItem } from '../Hooks';
+import { getAuth, signOut } from 'firebase/auth';
 
 import DraftsIcon from '@mui/icons-material/Drafts';
 import SendIcon from '@mui/icons-material/Send';
@@ -45,6 +46,7 @@ const MENUS = [
 
 export const Menu = () => {
   const navigation = useNavigate();
+  const auth = getAuth();
   const ctx = useContext(AuthContext);
   const setLocalStorage = useLocalStorage('isLoggedIn', ctx.isLoggedIn);
   const loginStatus = setLocalStorage.getItem('isLoggedIn');
@@ -52,6 +54,13 @@ export const Menu = () => {
   const handler = () => {
     ctx.setLoggedIn(false);
     setLocalStorage.setItem('isLoggedIn', false);
+    signOut(auth)
+      .then(() => {
+        console.log('Sign-out successful.');
+      })
+      .catch((error) => {
+        console.log('Sign-out failed.' + error);
+      });
   };
   const [activeItem, handleClick, open] = useSetActiveItem('0');
 
@@ -74,7 +83,7 @@ export const Menu = () => {
             aria-labelledby='nested-list-subheader'
             subheader={
               <ListSubheader component='div' id='nested-list-subheader'>
-                <h2 className='text-center text-lg mb-10'>後台管理系統</h2>
+                <h2 className='mb-10 text-center text-lg'>後台管理系統</h2>
               </ListSubheader>
             }
           >
