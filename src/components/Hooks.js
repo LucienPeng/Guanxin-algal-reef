@@ -137,7 +137,7 @@ export const useLocalStorage = (key, value) => {
   return { setItem, getItem };
 };
 
-export const useSetActiveItem = (selected) => {
+export const useSetActiveItem = (e, selected) => {
   const [activeItem, setActiveItem] = React.useState(selected);
   const [open, setOpen] = React.useState(false);
 

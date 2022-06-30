@@ -20,6 +20,7 @@ const News = (props) => {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleChange = (panel) => (event, isExpanded) => {
+    console.log(panel);
     setExpanded(isExpanded ? panel : false);
   };
 

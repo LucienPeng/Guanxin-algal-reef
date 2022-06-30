@@ -1,13 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import App from './App.jsx';
 import './styles/all.css';
 import { BrowserRouter } from 'react-router-dom';
 import { createTheme } from '@mui/material';
 import { ThemeProvider } from '@emotion/react';
-import store from './store/index';
-import { Provider } from 'react-redux';
-
 
 let themeOption = createTheme({
   palette: {
@@ -33,9 +30,7 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <ThemeProvider theme={themeOption}>
-        <Provider store={store}>
-          <App />
-        </Provider>
+        <App />
       </ThemeProvider>
     </BrowserRouter>
   </React.StrictMode>,

@@ -1,10 +1,4 @@
-import {
-  Routes,
-  Route,
-  useLocation,
-  Navigate,
-  useNavigate,
-} from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import HomePage from './containers/HomePage';
 import AdminPage from './containers/AdminPage';
 import AuthContext from './components/Admin/LoginAuthContext';
@@ -52,7 +46,7 @@ function App() {
             />
           </>
         )}
-        <Route path='/*' element={<h1>Page not found</h1>} />
+        <Route path='/*' element={<h1>Page not found</h1>} />s
       </Routes>
     </AuthContext.Provider>
   );

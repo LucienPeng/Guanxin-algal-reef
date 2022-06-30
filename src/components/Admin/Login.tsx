@@ -19,7 +19,7 @@ import { useLocalStorage } from '../Hooks';
 import {
   InitialLoginFormState,
   LoginFormReducer,
-} from '../../store/context/login-reducer';
+} from '../../context/login-reducer';
 
 import {
   LoginActionType,
@@ -28,7 +28,7 @@ import {
   LoginUserBlurAction,
   LoginUserInputAction,
   LoginFailedAction,
-} from '../../store/context/login-reducer';
+} from '../../context/login-reducer';
 
 //
 
